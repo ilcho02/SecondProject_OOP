@@ -1,6 +1,7 @@
 #include"ProjectString.h"
 #include<cstring>
 
+
 String::String() {
     str = nullptr;
     size = 0;
@@ -58,5 +59,19 @@ ostream& operator<<(ostream& os, const String& src) {
     return os;
 }
 bool operator==(const String& l, const String& r) {
-    return (strcmp(l.getStr(), r.getStr()) == 0);
+    if(strcmp(l.getStr(), r.getStr()) == 0){
+        return true;
+    }
+    else{
+        return false;
+    }
+}
+istream& operator>>(istream& is,String& istr){
+    delete[] istr.str;
+    char buffer[1024];
+    is.getline(buffer,1024);
+    istr.size=strlen(buffer);
+    istr.str=new char[strlen(buffer)+1];
+    strcpy(istr.str,buffer);
+    return is;
 }

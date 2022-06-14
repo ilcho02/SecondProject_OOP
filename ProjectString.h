@@ -18,6 +18,7 @@ public:
     
 
     friend ostream& operator<<(ostream&, const String&);
+    friend istream& operator>>(istream&, String&);
 };
 
 bool operator==(const String&, const String&);
