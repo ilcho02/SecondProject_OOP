@@ -1,6 +1,6 @@
 #include"ProjectString.h"
 #include<cstring>
-
+#include<fstream>
 
 String::String() {
     str = nullptr;
@@ -50,6 +50,29 @@ size_t String::getSize()const {
 const char* String::getStr()const {
     return str;
 }
+void String::readingFromFile(const char* fileName){
+    ifstream inputFile(fileName);
+    delete [] str;
+    char buffer[1024];
+    inputFile.getline(buffer,1024,',');
+    unsigned short len=strlen(buffer);
+    unsigned short count=0;
+    while(buffer[len-count-1]==' '){
+        count++;
+    }
+    unsigned short len2=len-count;
+    count=0;
+    while(buffer[count]==' '){
+        count++;
+    }
+    size=len2-count;
+    str=new char[size+1];
+    for(int i=0;i<size;++i){
+        str[i]=buffer[count+i];
+    }
+    str[size]='\0';
+    inputFile.close();
+}
 
 
 
@@ -65,13 +88,4 @@ bool operator==(const String& l, const String& r) {
     else{
         return false;
     }
-}
-istream& operator>>(istream& is,String& istr){
-    delete[] istr.str;
-    char buffer[1024];
-    is.getline(buffer,1024);
-    istr.size=strlen(buffer);
-    istr.str=new char[strlen(buffer)+1];
-    strcpy(istr.str,buffer);
-    return is;
 }

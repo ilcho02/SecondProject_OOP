@@ -15,10 +15,11 @@ public:
     String(const char*);
     size_t getSize()const;
     const char* getStr()const;
+    void readingFromFile(const char*);
     
 
     friend ostream& operator<<(ostream&, const String&);
-    friend istream& operator>>(istream&, String&);
+    
 };
 
 bool operator==(const String&, const String&);
