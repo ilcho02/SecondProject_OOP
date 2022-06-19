@@ -2,7 +2,7 @@
 #include<iostream>
 using namespace std;
 class String {
-private:
+protected:
     char* str;
     size_t size;
 public:
@@ -16,6 +16,9 @@ public:
     size_t getSize()const;
     const char* getStr()const;
     void readingFromFile(const char*);
+    void setStr(const char*);
+    void deleteingWhitespaces();
+    bool containingSymbolOnce(char);
     
 
     friend ostream& operator<<(ostream&, const String&);
