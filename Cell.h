@@ -12,12 +12,15 @@
 class Cell{
 private:
     String info;
-    Pair<size_t,size_t> rowColumn;
-    unsigned int type;
+    Pair<unsigned int,unsigned int> rowColumn;
 public:
     Cell()=default;
-    Cell(const char*,size_t,size_t,unsigned int);
-
+    Cell(const char*,unsigned int,unsigned int);
+    Cell* clone();
+    void setInfo(const char*);
+    void formatInfoForOutput();
+    const unsigned int getRow()const;
+    const unsigned int getColumn()const;
 
 
 };

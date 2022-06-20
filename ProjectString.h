@@ -1,10 +1,12 @@
 #pragma once
 #include<iostream>
+#include<cstring>
+#include<fstream>
 using namespace std;
 class String {
 protected:
     char* str;
-    size_t size;
+    unsigned int size;
 public:
     String();
     String(const String&);
@@ -19,6 +21,8 @@ public:
     void setStr(const char*);
     void deleteingWhitespaces();
     bool containingSymbolOnce(char);
+    void setSize(unsigned int);
+    void formattingString();
     
 
     friend ostream& operator<<(ostream&, const String&);

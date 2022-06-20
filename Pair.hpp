@@ -28,12 +28,5 @@ public:
 
 };
 
-
-
-
-
-/*
-template<typename A,typename B>
-Pair<A,B>::Pair
-template<typename A,typename B>
-Pair<A,B>::Pair*/
+//https://github.com/Angeld55/Object-oriented_programming_FMI/tree/master/Sem.%2010/Examples/Pair
+//класът Pair е взет от горния линк
